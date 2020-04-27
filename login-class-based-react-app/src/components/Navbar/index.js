@@ -3,10 +3,8 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-import Button from "@material-ui/core/Button";
 import InputBase from "@material-ui/core/InputBase";
 import Switch from "@material-ui/core/Switch";
-import MenuIcon from "@material-ui/icons/Menu";
 import Tooltip from "@material-ui/core/Tooltip";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
@@ -27,7 +25,7 @@ class Navbar extends Component {
               </span>
             </IconButton>
             <Typography className={classes.title} variant="h6">
-              AppTitle
+              Class Based React App
             </Typography>
             <Tooltip title="Switch Theme">
               <Switch />
