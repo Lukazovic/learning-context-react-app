@@ -11,13 +11,16 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import SearchIcon from "@material-ui/icons/Search";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "./styles";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 class Navbar extends Component {
+  static contextType = ThemeContext;
   render() {
+    const { isDarkMode } = this.context;
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <AppBar position="static" color="primary">
+        <AppBar position="static" color={isDarkMode ? "secondary" : "primary"}>
           <Toolbar>
             <IconButton className={classes.menuButton} color="inherit">
               <span role="img" aria-label="baguette">
