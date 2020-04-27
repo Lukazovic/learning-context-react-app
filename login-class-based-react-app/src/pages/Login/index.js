@@ -3,15 +3,18 @@ import PageContent from "../../components/PageContent";
 import Navbar from "../../components/Navbar";
 import Form from "../../components/Form";
 import { ThemeProvider } from "../../contexts/ThemeContext";
+import { LanguageProvider } from "../../contexts/LanguageContext";
 
 class Login extends Component {
   render() {
     return (
       <ThemeProvider>
-        <PageContent>
-          <Navbar />
-          <Form />
-        </PageContent>
+        <LanguageProvider>
+          <PageContent>
+            <Navbar />
+            <Form />
+          </PageContent>
+        </LanguageProvider>
       </ThemeProvider>
     );
   }

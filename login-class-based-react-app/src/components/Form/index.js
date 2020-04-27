@@ -17,8 +17,38 @@ import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "./styles";
+import { LanguageContext } from "../../contexts/LanguageContext";
+
+const words = {
+  english: {
+    signIn: "Sign In",
+    email: "Email",
+    password: "Password",
+    remember: "Remember Me",
+  },
+  spanish: {
+    signIn: "Registrarse",
+    email: "Correo Electrónico",
+    password: "Contraseña",
+    remember: "Recuérdame",
+  },
+  portuguese: {
+    signIn: "Cadastre-se",
+    email: "Email",
+    password: "Senha",
+    remember: "Lembrar-me",
+  },
+  french: {
+    signIn: "Se Connecter",
+    email: "Adresse Èlectronique",
+    password: "Mot de Passe",
+    remember: "Souviens-toi de Moi",
+  },
+};
 
 class From extends Component {
+  static contextType = LanguageContext;
+
   constructor(props) {
     super(props);
     this.state = { showPassword: false };
@@ -31,6 +61,8 @@ class From extends Component {
   render() {
     const { classes } = this.props;
     const { showPassword } = this.state;
+    const { language, changeLanguage } = this.context;
+    const { signIn, email, password, remember } = words[language];
     return (
       <div className={classes.root}>
         <main className={classes.main}>
@@ -38,20 +70,20 @@ class From extends Component {
             <Avatar className={classes.avatar}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography variant="h5">Sign in </Typography>
-            <Select value="english">
+            <Typography variant="h5">{signIn}</Typography>
+            <Select value={language} onChange={changeLanguage}>
               <MenuItem value="english">English</MenuItem>
+              <MenuItem value="spanish">Spanish</MenuItem>
               <MenuItem value="portuguese">Portuguese</MenuItem>
               <MenuItem value="french">French</MenuItem>
-              <MenuItem value="spanish">Spanish</MenuItem>
             </Select>
             <form className={classes.form}>
               <FormControl margin="normal" required fullWidth>
-                <InputLabel htmlFor="email">Email</InputLabel>
+                <InputLabel htmlFor="email">{email}</InputLabel>
                 <Input id="email" name="email" autoFocus></Input>
               </FormControl>
               <FormControl margin="normal" required fullWidth>
-                <InputLabel htmlFor="password">Password</InputLabel>
+                <InputLabel htmlFor="password">{password}</InputLabel>
                 <Input
                   id="password"
                   name="password"
@@ -70,7 +102,7 @@ class From extends Component {
               </FormControl>
               <FormControlLabel
                 control={<Checkbox color="primary" />}
-                label="Remember Me"
+                label={remember}
               ></FormControlLabel>
               <Button
                 variant="contained"
@@ -79,7 +111,7 @@ class From extends Component {
                 color="primary"
                 className={classes.submit}
               >
-                Sign in
+                {signIn}
               </Button>
             </form>
           </Paper>
