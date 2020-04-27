@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import Navbar from "../../components/Navbar";
+import Form from "../../components/Form";
 
 class Login extends Component {
   render() {
     return (
-      <div>
+      <>
         <Navbar />
-      </div>
+        <Form />
+      </>
     );
   }
 }

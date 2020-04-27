@@ -7,7 +7,9 @@ import Button from "@material-ui/core/Button";
 import InputBase from "@material-ui/core/InputBase";
 import Switch from "@material-ui/core/Switch";
 import MenuIcon from "@material-ui/icons/Menu";
+import Tooltip from "@material-ui/core/Tooltip";
 import GitHubIcon from "@material-ui/icons/GitHub";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import SearchIcon from "@material-ui/icons/Search";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "./styles";
@@ -27,7 +29,9 @@ class Navbar extends Component {
             <Typography className={classes.title} variant="h6">
               AppTitle
             </Typography>
-            <Switch />
+            <Tooltip title="Switch Theme">
+              <Switch />
+            </Tooltip>
             <div className={classes.grow} />
             <div className={classes.search}>
               <div className={classes.searchIcon}>
@@ -41,14 +45,29 @@ class Navbar extends Component {
                 }}
               />
             </div>
-            <IconButton
-              color="inherit"
-              onClick={() =>
-                (window.location.href = "https://github.com/Lukazovic")
-              }
-            >
-              <GitHubIcon />
-            </IconButton>
+            <Tooltip title="Github">
+              <IconButton
+                color="inherit"
+                onClick={() =>
+                  window.open("https://github.com/Lukazovic", "_blank")
+                }
+              >
+                <GitHubIcon />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="LinkedIn">
+              <IconButton
+                color="inherit"
+                onClick={() =>
+                  window.open(
+                    "https://www.linkedin.com/in/lucas-vieira-90658619b/",
+                    "_blank"
+                  )
+                }
+              >
+                <LinkedInIcon />
+              </IconButton>
+            </Tooltip>
           </Toolbar>
         </AppBar>
       </div>
